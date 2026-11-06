@@ -1,7 +1,4 @@
-import os
-import subprocess
-
-
+import os, subprocess
 def cached_compile(path):
     if not os.path.exists(path) or os.path.getmtime(path) < os.path.getmtime(f"{path}.cpp"):
         print(f"compiling {path}...", end=" ", flush=True)
