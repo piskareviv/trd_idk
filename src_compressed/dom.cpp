@@ -1,5 +1,4 @@
-/* src: https://judge.yosupo.jp/submission/233128 */
-#include <bits/stdc++.h>
+/* src: https://judge.yosupo.jp/submission/233128 */ #include <bits/stdc++.h>
 using namespace std;
 struct dominator_tree { int n, t; vector<basic_string<int>> g, rg, bucket; vector<int> arr, par,
     rev, sdom, dom, dsu, label;

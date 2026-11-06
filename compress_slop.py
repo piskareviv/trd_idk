@@ -126,7 +126,7 @@ def compress(s, limit=96):
         line = collapse(fix_comments(raw)).strip()
         if not line:
             continue
-        if line.startswith("#"):
+        if line.startswith("#") and 0:
             flush()
             out.append(line)
             continue

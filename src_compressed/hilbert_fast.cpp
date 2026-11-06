@@ -1,6 +1,4 @@
-#pragma GCC target("bmi2")
-#include <immintrin.h>
-#include <cstdint>
+#pragma GCC target( "bmi2" ) #include <immintrin.h> #include <cstdint>
 uint64_t interleave(uint64_t x) { /* x = (x | (x << 16))& 0x0000 'FFFF' 0000
     'FFFF; x = (x | (x << 8)) & 0x00FF' 00FF '00FF' 00FF; */ /* x = (x | (x << 4)) & 0x0F0F
     '0F0F' 0F0F '0F0F; x = (x | (x << 2)) & 0x3333' 3333 '3333' 3333; */ /* x = (x | (x << 1)) &

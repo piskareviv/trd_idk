@@ -1,7 +1,6 @@
 #include <iostream>
-#pragma GCC optimize("O3")
-#pragma GCC target("avx2,lzcnt,bmi,bmi2")
-#include <bits/stdc++.h>
+#pragma GCC optimize( "O3" )
+#pragma GCC target( "avx2,lzcnt,bmi,bmi2" ) #include <bits/stdc++.h>
 template <typename u_tp = uint64_t>
 class TreeBitset { private: static constexpr size_t B = sizeof(u_tp) * 8; std::vector<u_tp>
     my_data; std::vector<u_tp*> data; size_t n, lg; public:

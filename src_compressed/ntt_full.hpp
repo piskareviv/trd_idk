@@ -1,10 +1,6 @@
-#include <immintrin.h>
-#include <algorithm>
-#include <cassert>
-#include <cstdint>
-#include <cstring>
-#include <vector>
-#pragma GCC target("avx2,bmi")
+#include <immintrin.h> #include <algorithm> #include <cassert> #include <cstdint> #include
+    <cstring> #include <vector>
+#pragma GCC target( "avx2,bmi" )
 using u32 = uint32_t;
 using u64 = uint64_t;
 struct Montgomery { u32 mod; /* mod */ u32 mod2; /* 2 * mod */ u32 n_inv; /* n_inv * mod == -1

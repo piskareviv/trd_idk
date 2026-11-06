@@ -1,5 +1,4 @@
-#include <bits/stdc++.h>
-#include <immintrin.h>
+#include <bits/stdc++.h> #include <immintrin.h>
 __m256i compress_epi32(__m256i val, __m256i mask) { uint32_t i32 = _mm256_movemask_epi8(mask);
     constexpr uint32_t identity = 0x76543210; i32 = _pext_u32(identity, i32);
     constexpr uint64_t expand = 0x0F0F0F0F0F0F0F0Full; uint64_t i64 = _pdep_u64(i32, expand);

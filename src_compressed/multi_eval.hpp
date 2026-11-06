@@ -1,7 +1,5 @@
-/* https://judge.yosupo.jp/submission/243168 */
-#include <bits/stdc++.h>
-#include <immintrin.h>
-size_t ntt_sum_size = 0;
+/* https://judge.yosupo.jp/submission/243168 */ #include <bits/stdc++.h> #include <immintrin.h>
+    size_t ntt_sum_size = 0;
 using u32 = uint32_t;
 using u64 = uint64_t;
 struct WTF { static constexpr u32 mod = 998 '244' 353; static constexpr u32 pr_root = 3; static

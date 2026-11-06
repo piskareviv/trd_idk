@@ -1,6 +1,4 @@
-#include <stdint.h>
-#include <fstream>
-#include <sstream>
+#include <stdint.h> #include <fstream> #include <sstream>
 template <typename T>
 struct Vector { T x, y;
     Vector() : x(0), y(0) { ; }

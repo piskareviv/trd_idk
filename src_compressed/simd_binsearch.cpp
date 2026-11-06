@@ -1,9 +1,5 @@
-#pragma GCC target("avx2,bmi,bmi2")
-#include <immintrin.h>
-#include <stdint.h>
-#include <algorithm>
-#include <cassert>
-#include <numeric>
+#pragma GCC target( "avx2,bmi,bmi2" ) #include <immintrin.h> #include <stdint.h> #include
+    <algorithm> #include <cassert> #include <numeric>
 using i256 = __m256i;
 int lower_bound_epi32(i256 vec, i256 val) { i256 cmp = _mm256_cmpgt_epi32(val, vec); uint32_t
     mask = _mm256_movemask_ps((__m256)cmp); return __builtin_ctz(~mask); }
