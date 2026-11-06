@@ -1,5 +1,5 @@
 /*
-    forged from https://mangooste.ru/lib/algo/mod-of-linear
+    forged from mangooste.ru/lib/algo/mod-of-linear
 */
 
 /*

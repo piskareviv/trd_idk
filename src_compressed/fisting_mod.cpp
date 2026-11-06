@@ -1,6 +1,6 @@
-/* forged from https: /* mangooste.ru/lib/algo/mod-of-linear */ */ /* ! WARNING: careful with
-    overflow. Don't forget to specify large enough type T. * Returns sum_{x = 0}^{n - 1}
-    floor((kx + b) / m). * Require: k >= 0, b >= 0, m > 0, n >= 0. */
+/* forged from mangooste.ru/lib/algo/mod-of-linear */ /* ! WARNING: careful with overflow. Don't
+    forget to specify large enough type T. * Returns sum_{x = 0}^{n - 1} floor((kx + b) / m). *
+    Require: k >= 0, b >= 0, m > 0, n >= 0. */
 template <typename T>
 T floor_sum(T k, T b, T m, T n) { if (k == 0) { return (b / m) * n; } if (k >= m || b >= m) {
     return n * (n - 1) / 2 * (k / m) + n * (b / m) + floor_sum(k % m, b % m, m, n); } T ymax =
