@@ -9,5 +9,5 @@ std::string min_cyclic_shift (std::string s) {
             ++j;
         } while (i <= k) i += j - k;
     }
-    return s.substr(ans, n/2);
+    return s.substr(ans, n/2); 
 }
