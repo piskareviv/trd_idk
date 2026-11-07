@@ -11,10 +11,12 @@ u64 is_prime(u64 val) { if (val % 2 == 0) { return val == 2; } int lg = __builti
     pw, val); if (i + 1 == lg && pw2 != 1) { return false; } if (pw2 == 1 && pw != val - 1) {
     return false; } pw = pw2; } } return true; }
 u64 find_divisor(u64 val) { for (int i = 2; i <= 1000; i++) { if (val % i == 0) { if (val == i)
-    { return 0; } return i; } } if (val <= 1e6 || is_prime(val)) { return 0; } auto f = [&](u64
-    x) { return add(mul(x, x, val), 3, val); }; static std::mt19937_64 rnd; u64 a = rnd() % val;
-    u64 b = a; std::vector<int64_t> vec; for (int64_t it = 0;; it++) { a = f(a); b = f(f(b));
-    u64 diff = std::max(a, b) - std::min(a, b); vec.push_back(diff); if (vec.size() >= 200) {
-    u64 prod = 1; for (u64 i : vec) { if (prod != 0) { prod = mul(prod, i, val); } } if
-    (std::gcd(prod, val) != 1) { for (u64 i : vec) { if (std::gcd(i, val) != 1) { return
-    std::gcd(i, val); } } assert(false); } vec.clear(); } } }
+    { return 0; } return i; } } if (val <= 1e6 || is_prime(val)) { return 0; }
+    auto f = [&](u64 x) { return add(mul(x, x, val), 3, val); };
+    static std::mt19937_64 rnd; u64 a = rnd() % val; u64 b = a; std::vector<int64_t> vec; for
+        (int64_t it = 0;; it++) { a = f(a); b = f(f(b)); u64 diff = std::max(a, b) - std::min(a,
+        b); vec.push_back(diff); if (vec.size() >= 200) { u64 prod = 1; for (u64 i : vec) { if
+        (prod != 0) { prod = mul(prod, i, val); } } if (std::gcd(prod, val) != 1) { for (u64 i :
+        vec) { if (std::gcd(i, val) != 1) { return std::gcd(i, val); } } assert(false); }
+        vec.clear(); } }
+}

@@ -66,9 +66,11 @@ class NTT { public: u32 mod, pr_root; private: static constexpr int LG = 32; /* 
     static u32 find_pr_root(u32 mod, const Montgomery& mt) { std::vector<u32> factors; u32 n =
         mod - 1; for (u32 i = 2; u64(i) * i <= n; i++) { if (n % i == 0) { factors.push_back(i);
         do { n /= i; } while (n % i == 0); } } if (n > 1) { factors.push_back(n); } for (u32 i =
-        2; i < mod; i++) { if (std::all_of(factors.begin(), factors.end(), [&](u32 f) { return
-        mt.power<false, false>(i, (mod - 1) / f) != 1; })) { return i; } } assert(false &&
-        "primitive root not found" ); }
+        2; i < mod; i++) {
+            if (std::all_of(factors.begin(), factors.end(), [&](u32 f) { return mt.power<false,
+                false>(i, (mod - 1) / f) != 1; })) { return i; }
+        }
+        assert(false && "primitive root not found" ); }
     public: NTT() = default;
     NTT(u32 mod) : mod(mod), mt(mod), mts(mod) { const Montgomery mt = this->mt; const
         Montgomery_simd mts = this->mts; pr_root = find_pr_root(mod, mt); int lg =

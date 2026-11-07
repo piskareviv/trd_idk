@@ -1,4 +1,3 @@
-// _mm_setcsr( _mm_getcsr() | 0x0040 | 0x8000 );
 #include <bits/stdc++.h>
 
 std::vector<std::pair<int, int>> maximum_matching(

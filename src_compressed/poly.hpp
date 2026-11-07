@@ -176,10 +176,11 @@ namespace polynomial {
         = 0; i < pts.size(); i++) { data[sz + i] = Poly<mod>({-pts[i], 1}); } for (int i =
         pts.size(); i < sz; i++) { data[sz + i] = Poly<mod>({1}); } for (int i = sz - 1; i > 0;
         i--) { data[i] = data[2 * i] * data[2 * i + 1]; } std::vector<MintT<mod>> d =
-        data[1].deriv().evaluate(pts); d = MintT<mod>::bulk_inverse(d); auto rec = [&](auto rec,
-        int i) -> Poly<mod> { if (i >= sz) { if (i - sz < vals.size()) { return Poly<mod>{vals[i
-        - sz] * d[i - sz]}; } else { return Poly<mod>{}; } } Poly<mod> a = rec(rec, 2 * i);
-        Poly<mod> b = rec(rec, 2 * i + 1); return a * data[2 * i + 1] + b * data[2 * i]; };
+        data[1].deriv().evaluate(pts); d = MintT<mod>::bulk_inverse(d);
+        auto rec = [&](auto rec, int i) -> Poly<mod> { if (i >= sz) { if (i - sz < vals.size())
+            { return Poly<mod>{vals[i - sz] * d[i - sz]}; } else { return Poly<mod>{}; } }
+            Poly<mod> a = rec(rec, 2 * i); Poly<mod> b = rec(rec, 2 * i + 1); return a * data[2
+            * i + 1] + b * data[2 * i]; };
         return rec(rec, 1); }
     /* https://arxiv.org/abs/2008.08822 */
     template <u32 mod>

@@ -16,8 +16,11 @@ CTRL = ("for", "while", "if", "switch", "return", "catch", "sizeof",
         "else", "do", "case", "new", "delete")
 
 # a lambda: [captures] preceded by = ( , or line start, then followed by ( { or ->
-LAMBDA_RE = ("(^|[=(,]" + BS + "s*)" + BS + "[[" + BS + "]]*" + BS + "]"
+# LAMBDA_RE = ("(^|[=(,]" + BS + "s*)" + BS + "[[" + BS + "]]*" + BS + "]"
+#              + BS + "s*(" + BS + "(|" + BS + "{|->)")
+LAMBDA_RE = ("(^|[=(,]" + BS + "s*)" + BS + "[" + "[^" + BS + "]]*" + BS + "]"
              + BS + "s*(" + BS + "(|" + BS + "{|->)")
+
 
 def fix_comments(line):
     # convert //comment -> /* comment */, but only outside string/char literals
