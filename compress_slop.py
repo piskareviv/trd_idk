@@ -179,6 +179,7 @@ def text_check(orig_path, comp_path):
     b = tokenize(open(comp_path).read())
     if len(a) == len(b) and all(x == y for x, y in zip(a, b)):
         return "token-identical (%d tokens, strings exact)" % len(a)
+    assert False, "FUCK"
     n = min(len(a), len(b))
     for i in range(n):
         if a[i] != b[i]:
